@@ -12,20 +12,20 @@ export const Events = ({ events }: { events: wixEvents.V3Event[] }) => {
 
   return (
     <div
-      className="px-8 sm:px-0 max-w-4xl mx-auto"
+      className="px-8 sm:px-0 max-w-4xl mx-auto flex flex-col items-center sm:items-start"
       data-testid={testIds.TICKET_LIST.CONTAINER}
     >
       <h1 className="uppercase text-4xl sm:text-7xl text-center sm:text-left">
         SHOWS
       </h1>
-      <div className="py-10">
+      <div className="py-10 w-full flex flex-col items-center sm:items-start">
         {events!.map((event) => (
           <div
             data-testid={testIds.TICKET_ITEM.CONTAINER}
-            className="group/event flex border-b last:border-0 hover:border-purple-500 gap-4 sm:gap-8 flex-col sm:flex-row py-4 sm:py-0 transition-colors duration-300"
+            className="group/event w-full flex flex-col md:flex-row items-center sm:items-stretch border-b last:border-0 hover:border-lime-400 gap-4 sm:gap-8 py-4 sm:py-0 transition-colors duration-300"
             key={event._id}
           >
-            <div className="flex flex-1 sm:items-center gap-4 sm:gap-4 md:gap-8 flex-col sm:flex-row sm:py-3">
+            <div className="flex flex-1 flex-col items-center sm:flex-row sm:items-center gap-4 sm:gap-4 md:gap-8 sm:py-3 w-full">
               <div
                 className={`sm:group-hover/event:overflow-hidden transition-all duration-300 ease-out ${
                   expendEventDescription[event._id!]
@@ -33,8 +33,8 @@ export const Events = ({ events }: { events: wixEvents.V3Event[] }) => {
                     : 'w-full max-w-fit sm:group-hover/event:w-0'
                 }`}
               >
-                <div className="flex flex-col min-w-fit sm:flex-row overflow-hidden sm:gap-4 md:gap-8 relative">
-                  <div className="w-[310px] h-[171px] sm:w-[80px] sm:h-[80px] overflow-hidden sm:group-hover/event:opacity-0 transition-opacity duration-300">
+                <div className="flex flex-col min-w-fit sm:flex-row overflow-hidden sm:gap-4 md:gap-8 relative items-center">
+                  <div className="w-full sm:w-[80px] sm:h-[80px] overflow-hidden sm:group-hover/event:opacity-0 transition-opacity duration-300">
                     <WixMediaImage
                       media={event.mainImage}
                       width={300}
@@ -68,9 +68,9 @@ export const Events = ({ events }: { events: wixEvents.V3Event[] }) => {
                   </div>
                 </div>
               </div>
-              <div className="grow flex flex-col hover:text-purple-500">
+              <div className="grow flex flex-col hover:text-lime-300 w-full text-center sm:text-left">
                 <button
-                  className="text-left w-full h-full group/button text-2xl text-left"
+                  className="text-center w-full h-full group/button text-2xl"
                   onClick={(e) => {
                     setExpendEventDescription({
                       [event._id!]: !expendEventDescription[event._id!],
