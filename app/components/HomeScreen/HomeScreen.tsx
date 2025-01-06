@@ -26,7 +26,7 @@ export default function HomeScreen({
 
       {/* Conditionally render the MarketSection or a loading indicator */}
       {loading ? (
-        <div>Loading products...</div>
+        <div>Loading producots...</div>
       ) : (
         <MarketSection items={items} />
       )}
